@@ -13,7 +13,7 @@ def clean_text(comment):
     return cleaned_comment
 
 
-with open('input_data.csv', 'r', encoding='utf-8') as csv_file:
+with open(r'C:\Users\very-\Desktop\Bot Project\Bot-Project\steam_comments.csv', 'r', encoding='utf-8') as csv_file:
     csv_reader = csv.reader(csv_file)
     header = next(csv_reader)
 

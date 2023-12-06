@@ -17,7 +17,7 @@ async def process_start_command(message: Message):
 @dp.message(Command(commands=['help']))
 async def process_help_command(message: Message):
     await message.answer(
-        'Напишите мне описание игры и я постараюсь подобрать    что-нибудь по вашим предпочтениям.\nЧем больше описания и подробностей вы напишите, тем лучше мы сможем подобрать вам игру!')
+        'Напишите мне описание игры и я постараюсь подобрать что-нибудь по вашим предпочтениям.\nЧем больше описания и подробностей вы напишите, тем лучше мы сможем подобрать вам игру!')
 
 
 @dp.message(Command(commands=['research']))
