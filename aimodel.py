@@ -21,13 +21,13 @@ X_train, X_val, y_train, y_val = train_test_split(X_train_tfidf, y_train, test_s
 # Обучение модели
 rf_clf = KNeighborsClassifier()
 rf_clf.fit(X_train, y_train)
-parametrs = {'n_neighbors': range(1, 10, 4),
-             'weights': ['uniform', 'distance'],
-             'leaf_size': range(1, 100, 10)}
-grid = GridSearchCV(rf_clf, parametrs, cv=5, verbose=3)
-grid.fit(X_train, y_train)
-print(grid.best_params_)
-print(grid.best_score_)
+# parametrs = {'n_neighbors': range(1, 10, 4),
+#              'weights': ['uniform', 'distance'],
+#              'leaf_size': range(1, 100, 10)}
+# grid = GridSearchCV(rf_clf, parametrs, cv=5, verbose=3)
+# grid.fit(X_train, y_train)
+# print(grid.best_params_)
+# print(grid.best_score_)
 
 # Комментарий пользователя
 user_comment = tfidf_vectorizer.transform([input()])
