@@ -48,7 +48,7 @@ class CleanData:
         return filtered_text
 
     def filter(self, text):
-        text = text.lower()
+        text = str(text).lower()
         data1 = self.clean_text(text)
         data2 = self.filter_text(data1)
         return data2
@@ -58,7 +58,7 @@ class CleanData:
         tmp_csv_file_path = 'tmp.csv'
         output_csv_file_path = self.output_csv_file_path
         index = self.index
-        df = pd.read_csv(input_csv_file_path, sep=';').astype(str)
+        df = pd.read_csv(input_csv_file_path, sep=';')
 
         df[index] = tqdm(df[index].progress_apply(self.filter), desc="Cleaning progress")
         df = df.dropna(subset=[index])
