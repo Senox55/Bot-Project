@@ -58,7 +58,7 @@ class CleanData:
         tmp_csv_file_path = 'tmp.csv'
         output_csv_file_path = self.output_csv_file_path
         index = self.index
-        df = pd.read_csv(input_csv_file_path, sep=';')
+        df = pd.read_csv(input_csv_file_path, sep=';', encoding='latin-1')
 
         df[index] = tqdm(df[index].progress_apply(self.filter), desc="Cleaning progress")
         df = df.dropna(subset=[index])
