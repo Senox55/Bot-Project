@@ -10,7 +10,7 @@ from sklearn.preprocessing import LabelEncoder
 
 
 # Load the data
-comment_data = pd.read_csv(r'C:\Users\very-\Desktop\Bot Project\Bot-Project\cleaned_data.csv', sep=',').sample(n=10000)
+comment_data = pd.read_csv(r'C:\Users\very-\Desktop\Bot Project\Bot-Project\cleaned_data.csv', sep=',').sample(n=50000)
 
 X_train = comment_data['comment'].fillna('')
 
@@ -29,11 +29,11 @@ X_train, X_val, y_train, y_val = train_test_split(X_train_tfidf, y_train_encoded
 def get_model():
     model = Sequential()
 
-    model.add(Dense(64, activation='relu', input_shape=(X_train_tfidf.shape[1],)))
+    model.add(Dense(2048, activation='relu', input_shape=(X_train_tfidf.shape[1],)))
     model.add(Dropout(0.4, noise_shape=None, seed=None))
-    model.add(Dense(64, activation='relu'))
+    model.add(Dense(2048, activation='relu'))
     model.add(Dropout(0.3, noise_shape=None, seed=None))
-    model.add(Dense(64, activation='relu'))
+    model.add(Dense(2048, activation='relu'))
     model.add(Dropout(0.2, noise_shape=None, seed=None))
     model.add(Dense(np.unique(y_train_encoded).shape[0], activation='softmax'))
 
@@ -46,7 +46,7 @@ def get_model():
 
 model = get_model()
 
-model.fit(X_train.toarray(), y_train, epochs=10, batch_size=32, validation_data=(X_val.toarray(), y_val))
+model.fit(X_train.toarray(), y_train, epochs=3, batch_size=32, validation_data=(X_val.toarray(), y_val))
 
 model.save('model', save_format='h5')
 # loaded_model = tf.keras.models.load_model("model")
