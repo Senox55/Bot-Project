@@ -1,9 +1,0 @@
-import aiogram
-
-TOKEN = "6487256586:AAHd1dnxlv62Y9zsM9qR7CUG9G2_QrBX_WU"
-bot = aiogram.Bot(token=TOKEN)
-dispatcher = aiogram.Dispatcher(bot)
-
-@dispatcher.message_handler()
-async def process_message(message: aiogram.types.Message):
-    input_text = aiogram.message.text
